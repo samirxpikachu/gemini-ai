@@ -1,8 +1,8 @@
 MIT License
 
-bard-api-node - Node.js Library for interacting with the Bard chat assistant, powered by Google
+gemini-ai - Node.js Library for interacting with the gemini chat assistant, powered by Google
 
-Copyright (c) 2023 Inzimam Zafar
+Copyright (c) 2023 RizzyFuzz.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
