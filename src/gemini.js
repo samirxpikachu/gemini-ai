@@ -22,17 +22,20 @@ class Gemini {
       'https://gemini.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate';
   }
 
-  async setSession(key = '', apiKey = '') {
+  async configure(key = '', apikey = '') {
     const headers = {
       "Host": "gemini.google.com",
       "X-Same-Domain": "1",
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36",
       "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      "Sec-Fetch-Site": "same-origin",
+      "Sec-Fetch-Mode": "cors",
+      "Sec-Fetch-Dest": "empty",
       "Origin": "https://gemini.google.com",
       "Referer": "https://gemini.google.com/",
     };
     this.session.defaults.headers = headers;
-    this.session.defaults.headers.Cookie = `${key}=${apiKey}`;
+    this.session.defaults.headers.Cookie = `${key}=${apikey}`;
     await this.setSnim0e();
   }
 
@@ -43,7 +46,7 @@ class Gemini {
 
   }
 
-  async getBardResponse(input_text) {
+  async question(input_text) {
     if (!this.data.at) {
       return {content: "Authentication Error! Please make sure to initialize with the correct __Secure-1PSID or __Secure-3PSID value. Check your credentials and try again."};
     }
@@ -77,7 +80,7 @@ class Gemini {
       conversation_id: parsed_answer[1][0],
       response_id: parsed_answer[1][1],
       factualityQueries: parsed_answer[3],
-      textQuery: parsed_answer[2][0] || '',
+      textQuery: parsed_answer[2] ? parsed_answer[2][0] : '',
       choices: parsed_answer[4].map((i) => ({ id: i[0], content: i[1] })),
     };
 
