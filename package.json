@@ -1,12 +1,12 @@
 {
-  "name": "bard-api-node",
-  "version": "1.3.2",
+  "name": "gemini-ai",
+  "version": "1.0.0",
   "description": "A Node.js library for interacting with Google Bard, an experimental conversational AI chat service powered by Google's Language Model for Dialogue Applications (LaMDA). Use this library to leverage the capabilities of Bard, including coding, math problem solving, and writing assistance.",
   "main": "index.js",
   "keywords": [
     "node",
     "library",
-    "Bard",
+    "gemini",
     "Google",
     "AI",
     "chat",
@@ -24,9 +24,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/codenze/bard-api-node"
+    "url": "https://github.com/rizzlogy/gemini-ai"
   },
   "scripts": {
-    "postinstall": "echo 'Thank you for installing bard-api-node! If you find this library useful, please consider giving it a star on GitHub: https://github.com/codenze/bard-api-node'"
+    "postinstall": "echo 'Thank you for installing gemini-ai! If you find this library useful, please consider giving it a star on GitHub: https://github.com/rizzlogy/gemini-ai'"
   }
 }
