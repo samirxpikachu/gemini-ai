@@ -1,7 +1,7 @@
 const axios = require('axios');
 const qs = require('qs');
 
-class BardAPI {
+class Gemini {
   constructor() {
     this.timeout = 6000;
     this.proxies = null;
@@ -10,7 +10,7 @@ class BardAPI {
     this.choice_id = '';
     this.session = axios.create();
     this.params = {
-      bl: 'boq_assistant-bard-web-server_20230419.00_p1',
+      bl: 'boq_assistant-bard-web-server_20240201.08_p9',
       _reqid: '',
       rt: 'c',
     };
@@ -19,17 +19,17 @@ class BardAPI {
       at: '',
     };
     this.post_url =
-      'https://bard.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate';
+      'https://gemini.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate';
   }
 
   async setSession(key = '', apiKey = '') {
     const headers = {
-      "Host": "bard.google.com",
+      "Host": "gemini.google.com",
       "X-Same-Domain": "1",
       "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36",
       "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-      "Origin": "https://bard.google.com",
-      "Referer": "https://bard.google.com/",
+      "Origin": "https://gemini.google.com",
+      "Referer": "https://gemini.google.com/",
     };
     this.session.defaults.headers = headers;
     this.session.defaults.headers.Cookie = `${key}=${apiKey}`;
@@ -91,7 +91,7 @@ class BardAPI {
 
   async setSnim0e() {
     try {
-      const response = await this.session.get("https://bard.google.com/", {
+      const response = await this.session.get("https://gemini.google.com/", {
         timeout: this.timeout,
         proxies: this.proxies,
       });
@@ -117,4 +117,4 @@ class BardAPI {
     }
   }
 }
-module.exports = BardAPI;
+module.exports = Gemini;
